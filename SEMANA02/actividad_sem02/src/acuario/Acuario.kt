@@ -4,9 +4,8 @@ import kotlin.math.PI
 
 open class Acuario(open var largo: Int = 100, open var ancho: Int = 20, open var alto: Int = 40) {
     open var volumen: Int
-        get() = ancho * alto * largo / 1000 // 1000 cm^3 = 1 litro
-        set(valor) {
-            alto = (valor * 1000) / (ancho * largo) }
+        get() = ancho * alto * largo / 1000
+        set(valor) { alto = (valor * 1000) / (ancho * largo) }
 
     open val forma = "rectángulo"
 
@@ -30,10 +29,8 @@ class TanqueTorre(override var alto: Int, var diametro: Int) : Acuario(alto = al
     override var volumen: Int
         get() = (ancho / 2 * largo / 2 * alto / 1000 * PI).toInt()
         set(valor) {
-            alto = ((valor * 1000 / PI) / (ancho / 2 * largo / 2)).toInt()
-        }
+            alto = ((valor * 1000 / PI) / (ancho / 2 * largo / 2)).toInt() }
 
     override var agua = volumen * 0.8
-
     override val forma = "cilindro"
 }
